@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cesar Delgado — QA Tester, Data Analyst & Web Developer</title>
+    <meta name="description" content="Portafolio profesional de Cesar Delgado, Ingeniero en Administración de Sistemas con enfoque en QA Testing, Data Analytics y Web Development." />
+    <meta name="author" content="Cesar Delgado" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Cesar Delgado — QA Tester, Data Analyst & Web Developer" />
+    <meta property="og:description" content="Portafolio profesional de QA Testing, Data Analytics y Web Development." />
+    <meta property="og:image" content="https://res.cloudinary.com/ow5ax157/image/upload/v1790879260/img-PortafolioWeb.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cesar Delgado — QA Tester, Data Analyst & Web Developer" />
+    <meta name="twitter:description" content="Portafolio profesional de QA Testing, Data Analytics y Web Development." />
+    <meta name="twitter:image" content="https://res.cloudinary.com/ow5ax157/image/upload/v1790879260/img-PortafolioWeb.png" />
+  </head>
+  <body>
+    <script>
+      (function () {
+        var stored = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+    <form name="contacto" data-netlify="true" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
