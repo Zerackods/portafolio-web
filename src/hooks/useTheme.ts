@@ -5,24 +5,25 @@ type Theme = 'light' | 'dark';
 export function useTheme() {
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window === 'undefined') return 'light';
-    const stored = localStorage.getItem('theme');
-    if (stored === 'dark' || stored === 'light') return stored as Theme;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light';
+    try {
+      return localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
+    } catch {
+      return 'light';
+    }
   });
 
   useEffect(() => {
-    const root = document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    localStorage.setItem('theme', theme);
+    document.documentElement.classList.toggle('dark', theme === 'dark');
   }, [theme]);
 
-  const toggle = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'));
+  const toggle = () =>
+    setTheme((t) => {
+      const next: Theme = t === 'dark' ? 'light' : 'dark';
+      try {
+        localStorage.setItem('theme', next);
+      } catch {}
+      return next;
+    });
 
   return { theme, toggle };
 }
